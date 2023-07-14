@@ -1,0 +1,26 @@
+<div
+  class="container mt-2 d-flex justify-content-center"
+  *ngFor="let list of userData"
+>
+  <mat-card class="listing-card bg-dark w-75" type="button">
+    <div class="">
+      <img
+        src="../../../assets/home.jpeg"
+        class="rounded-circle"
+        width="80px"
+        height="80px"
+        alt=""
+      />
+      <h3 mat-card-title class="fs-5 fw-bold text-white mt-3">
+        Name: {{ list.title }}
+      </h3>
+      <h3 mat-card-title class="fs-5 text-white">
+        Type : {{ list.propertytype }}
+      </h3>
+      <h3 mat-card-title class="fs-5 text-white">
+        Address: {{ list.address }}
+      </h3>
+      <h3 mat-card-title class="fs-5 text-white">Price: {{ list.price }}</h3>
+    </div>
+  </mat-card>
+</div>

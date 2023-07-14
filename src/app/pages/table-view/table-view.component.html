@@ -1,0 +1,125 @@
+<div class="container">
+  <nav class="border border-dark mt-2">
+    <input
+      class="form-control"
+      type="text"
+      name="title"
+      [(ngModel)]="propertytype"
+      (input)="search()"
+      placeholder="Search by Property Type"
+    />
+  </nav>
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    matSort
+    class="mat-elevation-z8 w-100"
+  >
+    <ng-container matColumnDef="No.">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        class="bg-dark text-white fs-6 fw-bold"
+      >
+        No.
+      </th>
+      <td mat-cell *matCellDef="let item; let i = index">{{ i + 1 }}</td>
+    </ng-container>
+    <ng-container matColumnDef="Title">
+      <th
+        mat-header-cell
+        mat-sort-header
+        class="bg-dark text-white fs-6 fw-bold"
+        *matHeaderCellDef
+      >
+        Title
+      </th>
+      <td mat-cell *matCellDef="let item">{{ item.title }}</td>
+    </ng-container>
+    <ng-container matColumnDef="PropertType">
+      <th
+        mat-header-cell
+        class="bg-dark text-white fs-6 fw-bold"
+        *matHeaderCellDef
+      >
+        Propert Type
+      </th>
+      <td mat-cell *matCellDef="let item">{{ item.propertytype }}</td>
+    </ng-container>
+    <ng-container matColumnDef="Address">
+      <th
+        mat-header-cell
+        class="bg-dark text-white fs-6 fw-bold"
+        *matHeaderCellDef
+      >
+        Address
+      </th>
+      <td mat-cell *matCellDef="let item">{{ item.address }}</td>
+    </ng-container>
+    <ng-container matColumnDef="BedRooms">
+      <th
+        mat-header-cell
+        class="bg-dark text-white fs-6 fw-bold"
+        *matHeaderCellDef
+      >
+        BedRooms
+      </th>
+      <td mat-cell *matCellDef="let item">{{ item.bedrooms }}</td>
+    </ng-container>
+    <ng-container matColumnDef="BathRooms">
+      <th
+        mat-header-cell
+        class="bg-dark text-white fs-6 fw-bold"
+        *matHeaderCellDef
+      >
+        BathRooms
+      </th>
+      <td mat-cell *matCellDef="let item">{{ item.bathrooms }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="CoveredArea">
+      <th
+        mat-header-cell
+        class="bg-dark text-white fs-6 fw-bold"
+        *matHeaderCellDef
+      >
+        CoveredArea
+      </th>
+      <td mat-cell *matCellDef="let item">{{ item.coveredarea }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Commercial">
+      <th
+        mat-header-cell
+        class="bg-dark text-white fs-6 fw-bold"
+        *matHeaderCellDef
+      >
+        Commercial
+      </th>
+      <td mat-cell *matCellDef="let item">{{ item.isCommercial }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Price">
+      <th
+        mat-header-cell
+        class="bg-dark text-white fs-6 fw-bold"
+        *matHeaderCellDef
+      >
+        Price
+      </th>
+      <td mat-cell *matCellDef="let item">{{ item.price }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayColumn"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayColumn"></tr>
+  </table>
+
+  <mat-paginator
+    #paginator
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page of users"
+    [pageSize]="5"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>
